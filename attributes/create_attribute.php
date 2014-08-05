@@ -116,3 +116,27 @@ $attributes = array(
     ),
     // feel free to add new attributes
 );
+
+/**
+ * Iterate the attributes save them in the shop
+ */
+foreach ($attributes as $attribute_data) {
+    $model = \Mage::getModel('catalog/resource_eav_attribute');
+    $model->addData($attribute_data);
+    $model->setEntityTypeId(\Mage::getModel('eav/entity')->setType('catalog_product')->getTypeId());
+    $model->setIsUserDefined(1);
+    $model->save();
+
+    /**
+     * You should use this if you have options
+     */
+    $setup = new \Mage_Eav_Model_Entity_Setup('core_setup');
+    foreach ($options as $key => $option) {
+        $attribute_options['value'][$attribute_data['attribute_code']][0] = $option;
+        $setup->addAttributeOption($attribute_options);
+    }
+
+    $model->setStoreLabels($frontend_label)->save();
+}
+
+// Do it the fancy way. Just execute magerun dev:setup:script:attribute catalog_product color to export a sample script
