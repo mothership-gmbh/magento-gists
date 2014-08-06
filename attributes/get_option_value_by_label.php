@@ -57,3 +57,30 @@ public function attributeValueExists($attribute_code, $attribute_value)
 
     return false;
 }
+
+/**
+ * If you need to get the attribute option, use this one. This will not get the value for one specific option
+ * but for the attribute in general
+ *
+ * So this is the structure
+ *
+ * Product
+ *    - [Attribute] with Attribute Option 1
+ */
+$product->getAttributeText('attribute_code');
+
+/**
+ * If you need to get the attribute label, use this one. This is very different to the upper one.
+ * This one for example is:
+ *
+ * Attribut-Label
+ *    - Attribute Option 1 | Attribute Option 1 Label
+ *    - Attribute Option 2 | Attribute Option 2 Label
+ *    - ...
+ *
+ * So this is the structure
+ *
+ * Product
+ *    - Attribute with [Attribute Option 1]
+ */
+$product->getResource()->getAttribute($attribute_code)->getFrontend()->getLabel($product);
