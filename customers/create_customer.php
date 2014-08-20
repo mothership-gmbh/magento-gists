@@ -95,9 +95,6 @@ try {
         ->setSaveInAddressBook('1');
     $customAddress->save();
 
-    \Mage::getSingleton('checkout/session')->getQuote()->setBillingAddress(
-        \Mage::getSingleton('sales/quote_address')->importCustomerAddress($customAddress)
-    );
 
     // if you have an alternate shipping address, use the following code in addition
     //\Mage::getSingleton('checkout/session')->getQuote()->setShippingAddress(
