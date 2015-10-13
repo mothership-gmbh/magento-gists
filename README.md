@@ -2,3 +2,29 @@ magento-gists
 =============
 
 helpful magento gists
+
+
+Skin JS
+=========
+A bunch of useful plugins we use in almost every Magento project. Some of them need som tweaks or custom css to fit the projects environment.
+
+# Local Storage Popup
+* A popup function which displays a popup in in the middle of the screen after 3 page visits and sets an entry in the user's local storage for 24 hours.
+
+# Image Reveal
+* This is useful for long pages with many or big images. Images are initially loaded with an placeholder and the actual image is revealed if it'svisible in the viewport.
+
+# Mail Disguise
+* This little email spam protection, allows you to use an almost blank email link in the templates or CMS pages, so that bots aren't able to scrape them.
+
+# Mobile Dropdown Menu
+* In Magento we use a lot of menus made of list elements. But when it comes to mobile devices these are not very user friendly. In this case list elements are transformed into select elements which are much better to use on mobile devices.
+
+# Responsive Images
+* Many sliders or content images are quite big or in wrong proportions for mobile freindly views. This allows to integrate special images for different viewports.
+
+# Truncate
+* Description texts can be quite long, so it is useful to have them truncated. This allows to set a certain text Length and shows a 'read more' button
+
+# Mage Zoom
+* This is a zoom / popup plugin for product images on the product details page. It is customized for magento but might work in other projects as well, after a few tweaks.
