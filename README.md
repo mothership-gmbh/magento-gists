@@ -28,3 +28,11 @@ A bunch of useful plugins we use in almost every Magento project. Some of them n
 
 # Mage Zoom
 * This is a zoom / popup plugin for product images on the product details page. It is customized for magento but might work in other projects as well, after a few tweaks.
+
+# Use Storage
+* A lightweight javascript class to call when working with local/session Storage. 
+* * Read data from storage `UseStorage.getData('storageType', key)` returns Object
+* * Write data to storage `UseStorage.setData('storageType', key, value)` writes JSON String
+* * Update data `UseStorage.updateData('storageType', key, property, value)` updates property Value in JSON
+* * Remove data `UseStorage.removeData('storageType', key)` clears storage entry by key
+* * Clear data `UseStorage.clearData('storageType')` clears full storage for domain
