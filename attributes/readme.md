@@ -1,7 +1,10 @@
 # 
 
-## Get all attribute values and options
+## Get all attribute values and options by sku
 
-[I'm an inline-style link](./all_attributes_by_sku.sql)
+* You want to get all entity attributes by sku
+* You also want to get static values , not only EAV tables
+
+[SQL](./all_attributes_by_sku.sql)
 
 ##
