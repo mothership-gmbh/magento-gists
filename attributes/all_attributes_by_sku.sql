@@ -2,6 +2,7 @@
 FROM   (SELECT ce.sku,
                ea.attribute_id,
                ea.attribute_code,
+               ea.frontend_input,
                ea.backend_type,
                CASE ea.backend_type
                  WHEN 'varchar' THEN ce_varchar.value
