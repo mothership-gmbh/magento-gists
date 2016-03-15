@@ -3,7 +3,8 @@ SELECT ea.attribute_code,
        ea.backend_model,
        ea.frontend_input,
        ea.is_user_defined,
-       ea.is_required
+       ea.is_required,
+       ea.default_value
 FROM   eav_attribute_set eas
        LEFT JOIN eav_entity_attribute eea
               ON eas.`attribute_set_id` = eea.`attribute_set_id`
