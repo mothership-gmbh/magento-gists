@@ -13,3 +13,11 @@
 * You only care about type_id = 4
 
 [SQL](./all_attribute_values_and_options.sql)
+
+
+## Get all attributes by attribute set
+
+* You want to know which attributes belong to an attribute set
+* You want to create a new simple product and don't know which fields are required (is_required=1)
+
+[SQL](./all_attribute_by_attribute_set.sql)
