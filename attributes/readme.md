@@ -4,6 +4,7 @@
 
 * You want to get all entity attributes by sku
 * You also want to get static values , not only EAV tables
+* Pretty complex SQL query. Also handles the various INT/SELECT combinations
 
 [SQL](./all_attributes_by_sku.sql)
 
@@ -23,3 +24,8 @@
 [SQL](./all_attribute_by_attribute_set.sql)
 
 ## VIEW for all attributes and values by options
+
+* You want to have a view which contains all product information
+* Based on three views because VIEWS must not depend on SUBSELECTs.
+
+[SQL](./view_all_attributes_by_sku.sql)
