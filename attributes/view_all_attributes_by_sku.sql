@@ -13,7 +13,9 @@ FROM   eav_attribute_option eao
 
 
 CREATE VIEW view_all AS
-SELECT ce.sku,
+SELECT         ce.entity_id,
+		 cpsl.parent_id,
+               ce.sku,
                ea.attribute_id,
                ea.attribute_code,
                ea.frontend_input,
@@ -73,4 +75,5 @@ SELECT ce.sku,
                LEFT JOIN view_attributes e_eaov
                       ON e_eaov.`option_id` = ce_int.`VALUE`
                          AND e_eaov.`store_id` = ce_int.`store_id`
-                         AND e_eaov.attribute_id = ea.attribute_id;
+                         AND e_eaov.attribute_id = ea.attribute_id
+               LEFT JOIN catalog_product_super_link cpsl ON ce.entity_id = cpsl.product_id;
