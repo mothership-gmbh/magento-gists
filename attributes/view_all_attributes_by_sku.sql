@@ -23,6 +23,7 @@ SELECT         ce.entity_id,
                ea.attribute_code,
                ea.frontend_input,
                ea.backend_type,
+               ea.source_model,
                e_eaov.`option_id`,
                CASE ea.backend_type
                  WHEN 'varchar' THEN ce_varchar.value
