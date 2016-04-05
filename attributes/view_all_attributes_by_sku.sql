@@ -2,7 +2,7 @@
 
 CREATE VIEW view_attributes AS
 SELECT eaov.option_id,
-       ea.attribute_code
+       ea.attribute_code,
        eao.attribute_id,
        eaov.value,
        eaov.store_id
@@ -10,7 +10,7 @@ FROM   eav_attribute_option eao
        LEFT JOIN eav_attribute_option_value eaov
               ON eao.option_id = eaov.option_id
        LEFT JOIN eav_attribute ea 
-              ON eao.`attribute_id`=ea.attribute_id
+              ON eao.`attribute_id`=ea.attribute_id;
               
 # VIEW view_all
 
