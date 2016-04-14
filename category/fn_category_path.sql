@@ -41,11 +41,12 @@ DETERMINISTIC
 #
 # Get the full category path
 #
+
+DELIMITER //
 CREATE FUNCTION MS_GET_CATEGORY_PATH(catId INT, storeId INT, counter INT, lower_case BOOL)
   RETURNS TEXT
-DETERMINISTIC
   BEGIN
-    DECLARE pathFound TEXT DEFAULT '';
+    DECLARE pathFound TEXT DEFAULT "";
     DECLARE categoryPath TEXT DEFAULT '';
     DECLARE pathOcurrences INT UNSIGNED DEFAULT 0;
     DECLARE pathPart VARCHAR(255);
@@ -63,7 +64,7 @@ DETERMINISTIC
     INTO @pathOcurrences;
     WHILE counter <= @pathOcurrences DO
       SET counter = counter + 1;
-      SELECT SPLIT_STR(@categoryPath, '/', counter)
+      SELECT MS_SPLIT_STR(@categoryPath, '/', counter)
       INTO @currentEntityId;
       SELECT IF(t_s.value IS NULL, t_d.value, t_s.value)
       FROM catalog_category_entity_varchar AS t_d
@@ -75,6 +76,8 @@ DETERMINISTIC
     END WHILE;
     IF (TRUE = lower_case) THEN SET pathFound = lower(pathFound); END IF;
       RETURN pathFound;
-  END;
+  END//
+
+DELIMITER ;
 
 SELECT MS_GET_CATEGORY_PATH(30, 2, 2, TRUE)
