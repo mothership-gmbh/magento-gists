@@ -20,6 +20,8 @@ DETERMINISTIC
   BEGIN
     RETURN LENGTH(search_string) - LENGTH(REPLACE(search_string, search, ""));
   END;
+  
+  # In some versions you can remove BEGIN AND END
 
 #
 # SPLIT
