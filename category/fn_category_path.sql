@@ -45,8 +45,9 @@ DETERMINISTIC
 #
 
 DELIMITER //
-CREATE FUNCTION MS_GET_CATEGORY_PATH(catId INT, storeId INT, counter INT, lower_case BOOL)
+CREATE FUNCTION MS_GET_CATEGORY_PATH_EXT(catId INT, storeId INT, counter INT, path_depth INT, concat_char VARCHAR(255), lower_case BOOL)
   RETURNS TEXT
+  DETERMINISTIC
   BEGIN
     DECLARE pathFound TEXT DEFAULT "";
     DECLARE categoryPath TEXT DEFAULT '';
@@ -64,8 +65,9 @@ CREATE FUNCTION MS_GET_CATEGORY_PATH(catId INT, storeId INT, counter INT, lower_
     INTO @attributeId;
     SELECT MS_CHAR_COUNT(@categoryPath, '/')
     INTO @pathOcurrences;
-    WHILE counter <= @pathOcurrences DO
+    WHILE counter <= @pathOcurrences && path_depth > 0 DO
       SET counter = counter + 1;
+      SET path_depth = path_depth - 1;
       SELECT MS_SPLIT_STR(@categoryPath, '/', counter)
       INTO @currentEntityId;
       SELECT IF(t_s.value IS NULL, t_d.value, t_s.value)
@@ -74,12 +76,11 @@ CREATE FUNCTION MS_GET_CATEGORY_PATH(catId INT, storeId INT, counter INT, lower_
           ON (t_s.attribute_id = @attributeId AND t_s.store_id = storeId AND t_s.entity_id = @currentEntityId)
       WHERE t_d.attribute_id = @attributeId AND t_d.store_id = 0 AND t_d.entity_id = @currentEntityId
       INTO @pathPart;
-      SET pathFound = CONCAT(pathFound, @pathPart, '/');
+      SET pathFound = CONCAT(pathFound, @pathPart, concat_char);
     END WHILE;
     IF (TRUE = lower_case) THEN SET pathFound = lower(pathFound); END IF;
       RETURN pathFound;
   END//
-
 DELIMITER ;
 
-SELECT MS_GET_CATEGORY_PATH(30, 2, 2, TRUE)
+SELECT MS_GET_CATEGORY_PATH(30, 2, 2, "/", TRUE)
