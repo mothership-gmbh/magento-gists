@@ -84,3 +84,17 @@ CREATE FUNCTION MS_GET_CATEGORY_PATH_EXT(catId INT, storeId INT, counter INT, pa
 DELIMITER ;
 
 SELECT MS_GET_CATEGORY_PATH(30, 2, 2, "/", TRUE)
+
+# View for all categories as an example
+CREATE VIEW ms_categories AS SELECT cce.entity_id AS msmage_id,
+       path AS msmage_path,
+       Ms_get_category_path_ext(cce.entity_id, 1, 2, 8, "/", TRUE) AS
+       path_string,
+       t_s.value
+FROM   catalog_category_entity cce
+       LEFT JOIN catalog_category_entity_varchar AS t_s
+              ON ( t_s.attribute_id = 41
+                   AND t_s.store_id = 1
+                   AND t_s.entity_id = cce.entity_id )
+HAVING msmage_id > 2
+ORDER  BY path;
