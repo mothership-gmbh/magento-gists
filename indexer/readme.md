@@ -51,6 +51,8 @@ Same as above, getting the products with their prices will mean a lot of joins o
 ## Catalog url Rewrites
 This cleans up the url rewrite rules by setting which url corresponds to which product or category. It's easier this way for the url management internal system to decide which page should you view when calling a non-standard url. Instead of searching through all the product and categories URL keys it just searches in one table.
 
+It is also responsible that a product has a url and is accessible for the user via the ```rewrite```. Magento does not care about if the ```url_key``` is set in the product model or not if there is no entry in the index table ```core_url_rewrite```.
+
 This index is absolutely mandatory and MUST be finished.
 
 | resource | information                                                        |                                  
