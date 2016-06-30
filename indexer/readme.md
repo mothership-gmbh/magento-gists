@@ -40,7 +40,14 @@ Same as above, getting the products with their prices will mean a lot of joins o
 This cleans up the url rewrite rules by setting which url corresponds to which product or category. It's easier this way for the url management internal system to decide which page should you view when calling a non-standard url. Instead of searching through all the product and categories URL keys it just searches in one table.
 
 ## Category Products
+
 In Magento you can set a category attribute named 'Is Anchor' to true or false. If it's true it means that the category in question will list all the products from it's child categories. Again, determining this realtime it will take more resources than just reading one table. This indexer creates the association between products and categories based on the associations you set in the backend and the 'Is Anchor' flag on the categories.
+
+| resource | information                                                        |                                  
+|----------|--------------------------------------------------------------------|
+| code      | catalog_category_product                       |  
+| indexer   | Mage_Catalog_Model_Category_Indexer_Product                       |                                             
+| resource  | Mage_Catalog_Model_Resource_Category_Indexer_Product              |   
 
 ## Stock Status
 For simple products it's easy. They can be in stock or out of stock, but for configurable, grouped and bundle is not that easy. They can be in stock or out of stock depending on the child products associated to the main product. Again (I'm just repeating my self here) getting their status real time would mean a lot of queries.
