@@ -88,9 +88,13 @@ This one collects all attributes that can be used in the layered navigation for 
 | index table | catalog_product_index_eav_idx -> product_eav_indexer_idx |
 
 ## When you should use it
-Your catalog pages are based on the 
+
+Your catalog pages heavily depends on the Magento layered navigation 
 
 ## How to avoid it
+
+* Do not use the layered navigation
+* Implement the catalog logic in another technology
 
 ## Direct usage
 
