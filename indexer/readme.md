@@ -7,6 +7,19 @@ There are different kind of indexes in Magento.
 All of the indexers are there to make things run faster.
 I will cover here only a few of them.
 
+Before we start, just a list of Indexer and if they are mandatory or not
+
+| Indexer     | Mandatory        | Note                                        |
+|----------|--------------------------------------------------------------------|---------------------------------------------|
+| catalog_product_price | yes  |                                             |
+| catalog_url | yes  |                                             |
+| catalog_product_flat | no  |                                             |
+| catalog_category_flat | no  |                                             |
+| catalog_category_product | no  |                                             |
+| catalogsearch_fulltext | no  |                                             |
+| cataloginventory_stock | yes  |                                             |
+
+
 ## Flat Index
 
 There are 2 such indexes. One for categories and one for products.
