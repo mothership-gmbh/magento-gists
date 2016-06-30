@@ -45,7 +45,7 @@ In Magento you can set a category attribute named 'Is Anchor' to true or false. 
 
 | resource | information                                                        |                                  
 |----------|--------------------------------------------------------------------|
-| code      | catalog_category_product                       |  
+| indexer name | catalog_category_product                       |  
 | indexer   | Mage_Catalog_Model_Category_Indexer_Product                       |                                             
 | resource  | Mage_Catalog_Model_Resource_Category_Indexer_Product              |   
 
