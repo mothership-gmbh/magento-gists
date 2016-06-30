@@ -53,6 +53,19 @@ This cleans up the url rewrite rules by setting which url corresponds to which p
 
 This index is absolutely mandatory and MUST be finished.
 
+| resource | information                                                        |                                  
+|----------|--------------------------------------------------------------------|
+| indexer name | catalog_url                                       |  
+| indexer   | Mage_Catalog_Model_Indexer_Url                       |                                             
+| resource  | Mage_Catalog_Model_Url, sounds weird but yeah, the index logic is there             |
+| index table | core_url_rewrite |
+
+### Direct usage
+
+```
+Mage_Catalog_Model_Url::refreshProductRewrite
+```
+
 ### Optimization
 
 * Install https://www.magentocommerce.com/magento-connect/dn-d-patch-index-url-1.html
