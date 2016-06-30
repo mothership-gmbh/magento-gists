@@ -87,6 +87,9 @@ This one collects all attributes that can be used in the layered navigation for 
 | resource  | Mage_Catalog_Model_Resource_Product_Indexer_Eav              |
 | index table | catalog_product_index_eav_idx -> product_eav_indexer_idx |
 
+## When you should use it
+Your catalog pages are based on the 
+
 ## How to avoid it
 
 ## Direct usage
