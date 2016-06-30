@@ -80,5 +80,20 @@ For simple products it's easy. They can be in stock or out of stock, but for con
 ## Product Attributes.
 This one collects all attributes that can be used in the layered navigation for same reason. Having all of them in one place for faster reading.
 
+| resource | information                                                        |                                  
+|----------|--------------------------------------------------------------------|
+| indexer name | catalog_product_attribute                                       |  
+| indexer   | Mage_Catalog_Model_Product_Indexer_Eav                       |                                             
+| resource  | Mage_Catalog_Model_Resource_Product_Indexer_Eav              |
+| index table | catalog_product_index_eav_idx -> product_eav_indexer_idx |
+
+## How to avoid it
+
+## Direct usage
+
+```
+reindexEntities
+```
+
 ## Tag Aggregation
 I have no idea what this does. I've never used tags in a real live project.
