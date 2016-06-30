@@ -12,11 +12,11 @@ Before we start, just a list of Indexer and if they are mandatory or not
 | Indexer     | Mandatory        | Note                                        |
 |----------|--------------------------------------------------------------------|---------------------------------------------|
 | catalog_product_price | yes  |                                             |
-| catalog_url | yes  |                                             |
-| catalog_product_flat | no  |                                             |
-| catalog_category_flat | no  |                                             |
-| catalog_category_product | no  |                                             |
-| catalogsearch_fulltext | no  |                                             |
+| catalog_url | yes  | Required for resolving the URL and most important the internal routing   |
+| catalog_product_flat | no  | Replace catalog with a better catalog engine |
+| catalog_category_flat | no  | Cache category pages. |
+| catalog_category_product | no  | Do not use anchor categories |
+| catalogsearch_fulltext | no  | Replace with another search technology |
 | cataloginventory_stock | yes  |                                             |
 
 
