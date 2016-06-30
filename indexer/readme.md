@@ -1,4 +1,4 @@
-# Guideline for Indexer
+# The big Indexer FAQ
 
 Parts of this gist is based on http://magento.stackexchange.com/questions/22157/how-indexing-works-in-magento/22166
 
