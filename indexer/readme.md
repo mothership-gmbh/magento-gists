@@ -51,7 +51,8 @@ In Magento you can set a category attribute named 'Is Anchor' to true or false. 
 | index table | catalog_category_product_index_idx -> category_product_indexer_idx |
 
 ### When you should use it
-If you work with a lot of products in anchor categories, then you should use it. This is different to the table ```catalog_category_product_index``` which contains the real association between a ```product``` and a ```category```. The only code where this is used is in ```Mage_Catalog_Model_Resource_Category_Indexer_Product```
+
+If you work with a lot of products in anchor categories, then you should use it. This is different to the table ```catalog_category_product_index``` which contains the real association between a ```product``` and a ```category```. The only code where this is used is in ```Mage_Catalog_Model_Resource_Category_Indexer_Product```.
 
 ```
 public function getIdxTable($table = null)
@@ -66,7 +67,12 @@ public function getIdxTable($table = null)
 
 ### When you should not use it
 
+If every product is assigned to a category then you will not need it.
+
 ### How to avoid it
+
+* Assign every product to a category
+* Do not assign simple products but only configurables
 
 ## Stock Status
 For simple products it's easy. They can be in stock or out of stock, but for configurable, grouped and bundle is not that easy. They can be in stock or out of stock depending on the child products associated to the main product. Again (I'm just repeating my self here) getting their status real time would mean a lot of queries.
