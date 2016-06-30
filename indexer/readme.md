@@ -51,10 +51,13 @@ Same as above, getting the products with their prices will mean a lot of joins o
 ## Catalog url Rewrites
 This cleans up the url rewrite rules by setting which url corresponds to which product or category. It's easier this way for the url management internal system to decide which page should you view when calling a non-standard url. Instead of searching through all the product and categories URL keys it just searches in one table.
 
+This index is absolutely mandatory and MUST be finished.
+
 ### Optimization
 
 * Install https://www.magentocommerce.com/magento-connect/dn-d-patch-index-url-1.html
 * Every simple MUST NOT be visible
+* Decrease the number of store views if not really required
 
 ## Category Products
 
