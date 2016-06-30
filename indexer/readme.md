@@ -77,8 +77,8 @@ If every product is assigned to a category then you will not need it.
 ## Stock Status
 For simple products it's easy. They can be in stock or out of stock, but for configurable, grouped and bundle is not that easy. They can be in stock or out of stock depending on the child products associated to the main product. Again (I'm just repeating my self here) getting their status real time would mean a lot of queries.
 
-## Product Attributes.
-This one collects all attributes that can be used in the layered navigation for same reason. Having all of them in one place for faster reading.
+## Product Attributes
+This one collects all attributes that can be used in the layered navigation for same reason. Having all of them in one place for faster reading. The indexer itself has two indexer, one for decimal values and one for source values like ```select``` and ```multiselect```.
 
 | resource | information                                                        |                                  
 |----------|--------------------------------------------------------------------|
