@@ -61,6 +61,12 @@ You can search for products by many attribute values. Some of them may not be in
 The price of a product can be affected by many variables. For example, customer group, website, catalog discount rules.
 Same as above, getting the products with their prices will mean a lot of joins or multiple selects. IN addition bundle products have a strange pricing system. This indexer aggregates the data in some tables (catalog_product_index_price_*) and makes the selects (sorting and filtering) much easier.
 
+| Resource | Class                                                              |                                  
+|----------|--------------------------------------------------------------------|
+| indexer   | Mage_Catalog_Model_Product_Indexer_Price                    |                                             
+| resource  | Mage_Catalog_Model_Resource_Product_Indexer_Price              |   
+
+
 ## Catalog url Rewrites
 This cleans up the url rewrite rules by setting which url corresponds to which product or category. It's easier this way for the url management internal system to decide which page should you view when calling a non-standard url. Instead of searching through all the product and categories URL keys it just searches in one table.
 
