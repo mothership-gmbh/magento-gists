@@ -36,3 +36,33 @@ A bunch of useful plugins we use in almost every Magento project. Some of them n
 * * Update data `UseStorage.updateData('storageType', key, property, value)` updates property Value in JSON
 * * Remove data `UseStorage.removeData('storageType', key)` clears storage entry by key
 * * Clear data `UseStorage.clearData('storageType')` clears full storage for domain
+* 
+# Constants Mage_Catalog_Model_Product_Visibility
+
+```
+  const VISIBILITY_NOT_VISIBLE    = 1;
+  const VISIBILITY_IN_CATALOG     = 2;
+  const VISIBILITY_IN_SEARCH      = 3;
+  const VISIBILITY_BOTH           = 4;
+```
+
+# Constants Mage_Catalog_Model_Product_Status
+
+```
+  const STATUS_ENABLED    = 1;
+  const STATUS_DISABLED   = 2;
+```
+
+# Constants Mage_Catalog_Model_Product_Type
+
+```
+  const TYPE_SIMPLE       = 'simple';
+  const TYPE_BUNDLE       = 'bundle';
+  const TYPE_CONFIGURABLE = 'configurable';
+  const TYPE_GROUPED      = 'grouped';
+  const TYPE_VIRTUAL      = 'virtual';
+
+  const DEFAULT_TYPE      = 'simple';
+  const DEFAULT_TYPE_MODEL    = 'catalog/product_type_simple';
+  const DEFAULT_PRICE_MODEL   = 'catalog/product_type_price';
+```
