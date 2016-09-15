@@ -1,6 +1,6 @@
 # Get a view for all variants
 
-CREATE VIEW view_variants AS CREATE VIEW  SELECT DISTINCT(o . value) AS variant_id,
+CREATE table ms_variants AS CREATE VIEW  SELECT DISTINCT(o . value) AS variant_id,
                                stock . qty   AS stock,
                                label . value AS label,
                                price . value AS price,
