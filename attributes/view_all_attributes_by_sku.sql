@@ -26,6 +26,10 @@ SELECT         ce.entity_id,
                ea.source_model,
                e_eaov.`option_id`,
                CASE ea.backend_type
+		 WHEN 'static' THEN
+			CASE
+				WHEN ea.attribute_code='created_at' THEN ce.created_at
+					END  
                  WHEN 'varchar' THEN ce_varchar.value
                  WHEN 'int' THEN ce_int.value
                  WHEN 'text' THEN ce_text.value
