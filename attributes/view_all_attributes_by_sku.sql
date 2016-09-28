@@ -15,7 +15,8 @@ FROM   eav_attribute_option eao
 # VIEW view_all
 
 
-CREATE VIEW view_all AS
+CREATE VIEW view_all AS                           
+                           
 SELECT         ce.entity_id,
 		 cpsl.parent_id,
                ce.sku,
@@ -25,16 +26,18 @@ SELECT         ce.entity_id,
                ea.backend_type,
                ea.source_model,
                e_eaov.`option_id`,
+               
                CASE ea.backend_type
-		 WHEN 'static' THEN
-			CASE
-				WHEN ea.attribute_code='created_at' THEN ce.created_at
-					END  
-                 WHEN 'varchar' THEN ce_varchar.value
-                 WHEN 'int' THEN ce_int.value
-                 WHEN 'text' THEN ce_text.value
-                 WHEN 'decimal' THEN ce_decimal.value
-                 WHEN 'datetime' THEN ce_datetime.value
+               	 WHEN 'static' THEN
+                 	CASE
+                 		WHEN ea.attribute_code='created_at' THEN ce.created_at
+                 		WHEN ea.attribute_code='sku' THEN ce.sku
+                 		END               	 
+               	 WHEN 'VARCHAR' THEN ce_varchar.value
+                 WHEN 'INT' THEN ce_int.value
+                 WHEN 'TEXT' THEN ce_text.value
+                 WHEN 'DECIMAL' THEN ce_decimal.value
+                 WHEN 'DATETIME' THEN ce_datetime.value
                END            AS `value`,
                
                e_eaov.value   AS option_value,
@@ -49,6 +52,7 @@ SELECT         ce.entity_id,
                  WHEN 'DECIMAL' THEN ce_decimal.value
                  WHEN 'DATETIME' THEN ce_datetime.value
                END            AS `combined`,
+               
                CASE ea.backend_type
                  WHEN 'VARCHAR' THEN ce_varchar.store_id
                  WHEN 'INT' THEN ce_int.store_id
@@ -85,3 +89,5 @@ SELECT         ce.entity_id,
                          AND e_eaov.`store_id` = ce_int.`store_id`
                          AND e_eaov.attribute_id = ea.attribute_id
                LEFT JOIN catalog_product_super_link cpsl ON ce.entity_id = cpsl.product_id;
+
+        
